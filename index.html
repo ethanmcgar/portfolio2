@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership & Influence Blog</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #c05621;
+            --accent-soft: #ed8936;
+            --bg: #f7fafc;
+            --bg-card: #ffffff;
+            --text: #2d3748;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .site-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff;
+            padding: 0 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.8;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 0;
+        }
+
+        .site-title {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.25rem;
+        }
+
+        .site-tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0 0 1.5rem;
+        }
+
+        .header-intro {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .nav-links {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .nav-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .blog-post {
+            background: var(--bg-card);
+            padding: 0;
+            margin-bottom: 2.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .blog-post::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+        }
+
+        .blog-post-inner {
+            padding: 2rem 2.25rem;
+        }
+
+        .blog-post h2 {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .post-meta {
+            display: inline-block;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            padding: 0.35em 0.75em;
+            background: var(--bg);
+            border-radius: 4px;
+        }
+
+        .post-content {
+            margin-top: 0;
+        }
+
+        .post-content p {
+            margin: 0 0 1.1rem;
+            font-size: 1rem;
+        }
+
+        .post-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .post-content code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.88em;
+            background: var(--bg);
+            padding: 0.2em 0.45em;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .content h3 {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin: 2rem 0 0.75rem;
+        }
+
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            background: var(--bg);
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            color: var(--text);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .blog-post-inner { padding: 1.5rem 1.25rem; }
+            .container { padding: 1.5rem 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <h1 class="site-title">Leadership Through the Literary Lens</h1>
+            <p class="site-tagline">Exploring the limits of power, influence, and human connection.</p>
+            <p class="header-intro">In today’s world, we are constantly distracted by the technology around us. This has made many people numb to human connection. After the recent Covid era, the younger generation has been glued to screens and have lost what it means to have a genuine connection. However, this is a vital skill and is oftentimes considered a human necessity. Without human interaction, we tend to feel disconnected or lonely. In addition to that, remote work has severely impacted people’s ability to connect on a daily basis. This blog, based on the classic title, “How to Win Friends and Influence People” covers these topics and more.</p>
+        </div>
+    </header>
+
+    <nav class="nav-links" aria-label="Series navigation">
+        <ul>
+            <li><a href="#part1">Part I — The Art of Appreciation</a></li>
+            <li><a href="#part2">Part II — Sincere Interest</a></li>
+            <li><a href="#part3">Part III — Admitting You're Wrong</a></li>
+            <li><a href="#part4">Part IV — Remembering Names</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <article class="blog-post" id="part1">
+            <div class="blog-post-inner">
+                <span class="post-meta">Series: Win Friends & Influence People · Part I</span>
+                <h2>The Art of Appreciation</h2>
+                <div class="post-content content">
+                    <p>As humans, we are inherently selfish beings. We constantly think about ourselves and what will benefit us. In this thought process, we also analyze people around us. We constantly point out flaws and dwell on the negatives. Expressing sincere and positive appreciation for someone else can not only make someone's day, it can also build a lasting relationship.</p>
+                    <h3>Be hearty and approachable when expressing appreciation</h3>
+                    <p>Point out the little things like a new haircut or a new pair of shoes. Odds are, they don’t hear this often. Even something like a thank you or holding the door for someone can go a long way.</p>
+                    <h3>Make another person feel important</h3>
+                    <p>Fight against the urge to talk about yourself and make the other person feel important. Be sure to ask questions about their lives and their perspectives on life. Nothing sounds more sincere than asking original, heartfelt questions.</p>
+                    <p>By practicing these in your next engagement, you can build stronger relationships, as people are drawn to those that appreciate them. You will also create a more positive atmosphere for everyone around you.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="blog-post" id="part2">
+            <div class="blog-post-inner">
+                <span class="post-meta">Part II</span>
+                <h2>Expression Sincere Interest</h2>
+                <div class="post-content content">
+                    <p>Odds are, when talking with another person, the conversation will be more engaging when it is two sided. Nobody wants to sit and listen to someone's life story without interjecting. Becoming fascinated with someone’s life is an easy way to express sincere interest.</p>
+                    <h3>Become interested in those around you</h3>
+                    <p>Always be curious and hungry for knowledge. Take a deeper dive and learn about someone’s dreams, passions and interests.</p>
+                    <h3>Become a good listener</h3>
+                    <p>Many great conversationalists don’t actually do much talking. They facilitate conversations by asking meaningful questions. It is vital to give the speaker your full attention and pay attention to specific details to ask follow up questions.</p>
+                    <h3>Relate to someone’s interests</h3>
+                    <p>Knowing who you’re talking to before starting a conversation allows you to shape the conversation around shared interests. This allows people to be more engaged in the topic and more receptive to your statements.</p>
+                    <p>By practicing sincere listening, you will build a better understanding of those around you on an emotional level. This will also lead to more enjoyable interactions and lifelong friendships.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="blog-post" id="part3">
+            <div class="blog-post-inner">
+                <span class="post-meta">Part III</span>
+                <h2>The Courage to Admit When you’re Wrong</h2>
+                <div class="post-content content">
+                    <p>Oftentimes, people’s ego gets in the way of a great idea. A tragic flaw of the human race is the refusal to admit when you’re wrong. Being able to admit you’re wrong sympathetically can lead to better discussions.</p>
+                    <h3>If you are in the wrong, acknowledge it</h3>
+                    <p>Be sure to acknowledge that you were wrong. Maybe give an apology alongside your acknowledgement. Approach the situation with caution and a friendly attitude.</p>
+                    <p>When you own your mistakes instead of deflecting, you show respect for the other person and for the truth. That builds trust and makes it easier for others to do the same when the roles are reversed.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="blog-post" id="part4">
+            <div class="blog-post-inner">
+                <span class="post-meta">Part IV</span>
+                <h2>The Power of Remembering Names</h2>
+                <div class="post-content content">
+                    <p>A person's name is a person's favorite thing to hear. In a world of notifications and limited interactions, taking the time to remember and use someone's name is a simple and powerful tool.</p>
+                    <h3>Why names matter</h3>
+                    <p>When you use someone's name, you signal that they mattered enough to stick in your mind. That recognition builds trust and opens the door to a real connection.</p>
+                    <h3>Use it with care</h3>
+                    <p>Use names naturally when you greet someone, when you say goodbye, or when you're turning the conversation back to them. Overusing a name can feel forced or like a tactic. The goal is genuine recognition, not performance. When appreciation, sincere interest, and the courage to admit fault are combined with the habit of remembering names, you create a style of connection that feels both respectful and human.</p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>Leadership & Influence Blog</p>
+        <p>Inspired by <em>How to Win Friends and Influence People</em></p>
+    </footer>
+
+</body>
+</html>
